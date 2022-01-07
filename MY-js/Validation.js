@@ -1,5 +1,5 @@
-function Validation(){
-    this.checkEmpty = function(value, spanID, message){
+function Validation() {
+    this.checkEmpty = function (value, spanID, message) {
         if (value.trim() != '') {
             document.getElementById(spanID).innerHTML = '';
             document.getElementById(spanID).style.display = 'none';
@@ -10,9 +10,9 @@ function Validation(){
         return false;
     }
 
-    this.checkID = function (value, spanID, message, mangNV){
+    this.checkID = function (value, spanID, message, mangNV) {
         var isExist = false;
-        isExist = mangNV.some(function(nv){
+        isExist = mangNV.some(function (nv) {
             return nv.taiKhoan == value;
         });
         if (isExist) {
@@ -25,7 +25,7 @@ function Validation(){
         return true;
     }
 
-    this.checkName = function(value, spanID, message){
+    this.checkName = function (value, spanID, message) {
         var patternString = "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ"
             + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ"
             + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\\s]+$";
@@ -53,7 +53,7 @@ function Validation(){
     }
 
     this.checkPass = function (value, spanID, message) {
-        var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,8}$/;
+        var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,10}$/;
         if (value.match(pattern)) {
             document.getElementById(spanID).innerHTML = '';
             document.getElementById(spanID).style.display = 'none';
@@ -76,7 +76,7 @@ function Validation(){
         return false;
     }
 
-    this.checkMoney = function (value, spanID, message){
+    this.checkMoney = function (value, spanID, message) {
         var pattern = /^[0-9]+$/;
         if (value.match(pattern)) {
             // kiểu số
@@ -102,7 +102,7 @@ function Validation(){
         return false;
     }
 
-    this.checkHour = function (value, spanID, message){
+    this.checkHour = function (value, spanID, message) {
         var pattern = /^[0-9]+$/;
         if (value.match(pattern)) {
             // kiểu số

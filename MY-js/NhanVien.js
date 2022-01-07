@@ -10,8 +10,8 @@ function NhanVien(taiKhoan, ten, email, pass, ngay, luong, chucVu, gio) {
     this.chucVu = chucVu;
     this.gioLam = gio;
 
-    this.tongLuong = function (){
-        switch (this.chucVu){
+    this.tongLuong = function () {
+        switch (this.chucVu) {
             case 'Sếp': this.tongLuong = this.luong * 3;
                 break;
             case 'Trưởng phòng': this.tongLuong = this.luong * 2;
@@ -22,7 +22,7 @@ function NhanVien(taiKhoan, ten, email, pass, ngay, luong, chucVu, gio) {
         }
     }
 
-    this.xepLoai = function (){
+    this.xepLoai = function () {
         if (0 < this.gioLam && this.gioLam < 160) {
             return this.xepLoai = "Trung bình";
         } else if (this.gioLam >= 160 && this.gioLam < 176) {

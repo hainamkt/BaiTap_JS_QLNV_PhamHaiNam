@@ -26,12 +26,25 @@ function DanhSachNhanVien() {
         }
     }
 
-    this.capNhat = function(nv){
+    this.capNhat = function (nv) {
         var viTri = this.timViTri(nv.taiKhoan);
         if (viTri != -1) {
             this.mangNV[viTri] = nv;
-        } else{
+        } else {
             console.log('không tìm thấy nhân viên để cập nhật');
         }
     }
+}
+
+DanhSachNhanVien.prototype.searchXepLoai = function (keyword) {
+    var mangTK = [];
+    var keywordLower = keyword.toLowerCase();
+    this.mangNV.map(function (nv) {
+        var xepLoaiNV = nv.xepLoai.toLowerCase();
+        var indexName = xepLoaiNV.indexOf(keywordLower);
+        if (indexName > -1) {
+            mangTK.push(nv);
+        }
+    });
+    return mangTK;
 }

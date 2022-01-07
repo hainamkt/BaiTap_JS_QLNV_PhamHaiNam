@@ -150,7 +150,7 @@ function capNhatNV() {
         var nv = new NhanVien(taiKhoan, ten, email, pass, ngay, Number(luong), chucVu, Number(gio));
         nv.tongLuong();
         nv.xepLoai();
-    
+
         dsnv.capNhat(nv);
         setLocalStorage(dsnv.mangNV);
         hienThiTable(dsnv.mangNV);
@@ -161,3 +161,12 @@ function resetForm() {
     getELE('formQLNV').reset();
     getELE('tknv').disabled = false;
 }
+
+function searchXepLoaiNV() {
+    var keyword = getELE('searchName').value.trim();
+    var mangKT = [];
+    mangKT = dsnv.searchXepLoai(keyword);
+
+    hienThiTable(mangKT);
+}
+getELE('searchName').addEventListener('keyup', searchXepLoaiNV);
